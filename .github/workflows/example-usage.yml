@@ -1,0 +1,17 @@
+name: AI README Generator
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: VIVAAN-DHAWAN/readme-ai-generator@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          ai_provider: openai
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          model: gpt-4o
+          output_file: README.md
+          overwrite: false

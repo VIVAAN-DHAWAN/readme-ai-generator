@@ -1,0 +1,41 @@
+name: 'README AI Generator'
+description: 'Automatically generate stunning READMEs for your repository using AI'
+author: 'VIVAAN-DHAWAN'
+branding:
+  icon: 'file-text'
+  color: 'purple'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN'
+    required: true
+  ai_provider:
+    description: '"openai" | "ollama" | "openrouter" | "anthropic"'
+    required: false
+    default: 'openai'
+  openai_api_key:
+    description: 'OpenAI API Key'
+    required: false
+  anthropic_api_key:
+    description: 'Anthropic API Key'
+    required: false
+  openrouter_api_key:
+    description: 'OpenRouter API Key'
+    required: false
+  ollama_host:
+    description: 'Ollama host URL'
+    required: false
+    default: 'http://localhost:11434'
+  model:
+    description: 'Model to use'
+    required: false
+  output_file:
+    description: 'File to write (e.g. README.md)'
+    required: false
+    default: 'README.md'
+  overwrite:
+    description: 'Set to true to overwrite existing README'
+    required: false
+    default: 'false'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
